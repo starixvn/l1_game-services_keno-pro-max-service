@@ -1,5 +1,5 @@
 {
-    "name": "sc-sedie",
+    "name": "sc1-vip-sedie-service",
     "version": "1.0.0",
     "description": "",
     "main": "./src/app.js",
@@ -10,7 +10,7 @@
         "prod": "node --max-old-space-size=8192 --es-module-specifier-resolution=node ./src/app.js",
         "reg": "npm set registry http://npm.lumigame.com"
     },
-    "author": "",
+    "author": "pentagon",
     "license": "ISC",
     "type": "module",
     "dependencies": {
@@ -27,7 +27,7 @@
         "nodemon": "^2.0.4",
         "sc-base-apis": "^1.6.0-dev-TableGameBase.8",
         "sc-common": "^1.4.6-dev-FreeBet.1",
-        "sc-game-base": "^1.13.0-dev-TableGameBase.63",
+        "sc-game-base": "^1.13.0-dev-TableGameBase.64",
         "socket.io": "^2.3.0"
     },
     "devDependencies": {
