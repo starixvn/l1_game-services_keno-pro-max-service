@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import autoIncrement from "mongoose-auto-increment-reworked";
 
-const modelName = "XocXoc_phien";
+const modelName = "VipSeDie_phien";
 
 const resultSchema = new mongoose.Schema(
     {
