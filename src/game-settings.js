@@ -1,6 +1,6 @@
 export default {
-    id: 2,
-    name: "XocXoc",
+    id: 22,
+    name: "VipSeDie",
     durations: {
         wholeRound: 38,
         placingBets: 30,
@@ -8,6 +8,6 @@ export default {
         shakeThePlateDuration: 2,
     },
     choices: ["even", "odd", "red2", "red3", "red4", "white3", "white4"],
-    choicesMapper: { even: 1, odd: 2, red3: 3, red4: 4, white3: 5, white4: 6 },
+    choicesMapper: { even: 1, odd: 2, red2: 3, red3: 4, red4: 5, white3: 6, white4: 7 },
     defaultBetTracks: {},
 };
