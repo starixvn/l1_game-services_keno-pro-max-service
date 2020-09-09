@@ -1,0 +1,28 @@
+image: docker:19.03.12
+
+variables:
+  WORKING_PATH: /var/www/l1/sedie-service/
+  DOCKER_SERVICE_NAME: l1-sedie-service
+
+services:
+  - docker:19.03.12-dind
+
+stages:
+  - test
+  - build
+  - post-build
+  - deploy
+
+include:
+  - project: 'lumi-ops/ci-scripts'
+    ref: master
+    file: 'sonarqube.gitlab-ci.yml'
+  - local: .gitlab-ci/before.gitlab-ci.yml
+  - local: .gitlab-ci/rules.gitlab-ci.yml
+  - local: .gitlab-ci/build-image.gitlab-ci.yml
+  - local: .gitlab-ci/post-build.gitlab-ci.yml
+  - local: .gitlab-ci/deploy.gitlab-ci.yml
+  - local: .gitlab-ci/deploy-local.gitlab-ci.yml
+  - local: .gitlab-ci/deploy-sit.gitlab-ci.yml
+  - local: .gitlab-ci/deploy-uat.gitlab-ci.yml
+  - local: .gitlab-ci/deploy-prod.gitlab-ci.yml
