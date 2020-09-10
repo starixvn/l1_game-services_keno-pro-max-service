@@ -13,7 +13,7 @@ import Startup from "./startup";
 export class SedieApp extends Table.TableGameApp {}
 
 const run = async () => {
-    const gameData = new Table.TableGameData(constants.roundDuration, constants.resetTotalBets);
+    const gameData = new Table.TableGameData(gameSettings.durations.wholeRound, constants.resetTotalBets);
 
     const definition = new Table.TableGameDefinition(
         gameSettings,
