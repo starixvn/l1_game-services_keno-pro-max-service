@@ -29,8 +29,8 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://f371d3a21b2e468eaf7b4a80c45e9d11@10.99.99.187:800/114",
-        logIdentifier: "sedie",
+        sentryUrl: "http://2f1c5c3152b24eadb231ba5aae4c38f5@10.99.99.187:800/121",
+        logIdentifier: "vipsedie",
         env: "SIT",
     },
     authenticateSettings: {
