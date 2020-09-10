@@ -20,6 +20,7 @@ const schema = new mongoose.Schema({
 
     memberId: { type: Number },
     siteId: { type: String },
+    freeBet: { type: Boolean, default: false },
 });
 
 const ones = mongoose.model("VipSeDie_one", schema);
