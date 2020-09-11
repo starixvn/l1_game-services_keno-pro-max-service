@@ -1,7 +1,7 @@
 import { helpers } from "sc-common";
 import { Table } from "sc-game-base";
 
-import constants from "./../constants";
+import constants from "../constants";
 
 export default class SedieBot extends Table.TableGameBot {
     constructor(gameName, choices, durations, configName, tempBetRepository, gameData, publisher = null) {
@@ -11,7 +11,7 @@ export default class SedieBot extends Table.TableGameBot {
             MainOpts: 90, //odd | even
             SubOpts: 5, //white3 | red3
             RareOpts: 1, //red4 | white4
-            EqualOpts: 4 //red2
+            EqualOpts: 4, //red2
         };
 
         this.mainOpts = ["even", "odd"];
@@ -37,7 +37,7 @@ export default class SedieBot extends Table.TableGameBot {
             red3: 0,
             red4: 0,
             white4: 0,
-            red2: 0
+            red2: 0,
         };
 
         this.smallTickets = 0;
@@ -62,7 +62,7 @@ export default class SedieBot extends Table.TableGameBot {
             {
                 group: this.equalOpts,
                 underBetRatio: (this.getTotalAmountOnChoiceGroup(this.equalOpts) * 100) / totalBotBet < this.betChoiceRatio.equalOpts,
-            }
+            },
         ];
 
         const underRatioGroups = helpers.arrayHelper.shuffle(betChoiceRatios.filter((data) => data.underBetRatio));

@@ -2,7 +2,7 @@ import { Table } from "sc-game-base";
 
 import appConfigs from "./app-configs";
 import constants from "./constants";
-import SedieBot from "./cron/sedie-bot";
+import SedieBot from "./crons/sedie-bot";
 import gameSettings from "./game-settings";
 import { generateResult, getSettlementResult } from "./helpers/result-helper";
 import { SedieBets } from "./models/sedie-bets";
