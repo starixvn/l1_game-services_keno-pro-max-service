@@ -61,7 +61,7 @@ export default class SedieBot extends Table.TableGameBot {
             },
             {
                 group: this.equalOpts,
-                underBetRatio: (this.getTotalAmountOnChoiceGroup(this.equalOpts) * 100) / totalBotBet < this.betChoiceRatio.equalOpts,
+                underBetRatio: (this.getTotalAmountOnChoiceGroup(this.equalOpts) * 100) / totalBotBet < this.betChoiceRatio.EqualOpts,
             },
         ];
 
