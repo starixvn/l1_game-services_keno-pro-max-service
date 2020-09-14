@@ -5,8 +5,7 @@ import constants from "./constants";
 import SedieBot from "./crons/sedie-bot";
 import gameSettings from "./game-settings";
 import { generateResult, getSettlementResult } from "./helpers/result-helper";
-import { SedieBets } from "./models/sedie-bets";
-import { SedieOnes, SedieTmpOnes } from "./models/sedie-ones";
+import { SedieBets, SedieTmpBets } from "./models/sedie-bets";
 import SedieRounds from "./models/sedie-rounds";
 import Startup from "./startup";
 
@@ -20,15 +19,15 @@ const run = async () => {
         generateResult,
         getSettlementResult,
         SedieRounds,
-        SedieOnes,
-        SedieTmpOnes,
         SedieBets,
+        SedieTmpBets,
+        null,
         new SedieBot(
             gameSettings.name,
             gameSettings.choices,
             gameSettings.durations,
             gameSettings.name.toLowerCase(),
-            SedieTmpOnes,
+            SedieTmpBets,
             gameData
         )
     );
