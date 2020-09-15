@@ -31,7 +31,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://9438b42a28794aca91cfb3216466739e@10.99.99.187:803/106",
+        sentryUrl: "http://26db550e29da4d038d1bb78ce1b79330@10.99.99.187:803/108",
         logIdentifier: "sedie",
         env: "PROD",
     },
