@@ -4,8 +4,8 @@ import { Table } from "sc-game-base";
 import constants from "../constants";
 
 export default class SedieBot extends Table.TableGameBot {
-    constructor(gameName, choices, durations, configName, tempBetRepository, gameData, publisher = null) {
-        super(gameName, choices, durations, configName, tempBetRepository, gameData, publisher);
+    constructor(definition, gameData) {
+        super(definition, gameData);
 
         this.betChoiceRatio = {
             MainOpts: 90, //odd | even
@@ -24,8 +24,8 @@ export default class SedieBot extends Table.TableGameBot {
         this.resetAllBets();
     }
 
-    async resetBots() {
-        await super.resetBots();
+    async resetAllBotData() {
+        await super.resetAllBotData();
         this.resetAllBets();
     }
 
@@ -146,7 +146,7 @@ export default class SedieBot extends Table.TableGameBot {
 
     getAllBetAmount() {
         let total = 0;
-        this.choices.forEach((choice) => (total += this.allBets[choice]));
+        this.definition.choices.forEach((choice) => (total += this.allBets[choice]));
 
         return total;
     }
