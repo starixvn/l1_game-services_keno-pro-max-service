@@ -15,17 +15,17 @@ export default class Startup extends Table.TableGameStartup {
      * @param {socketIo.Socket} socketClient
      */
     initSocketRouter(socketClient) {
-        const router = new Table.Routers.SocketRouter(
-            this.definition,
-            this.gameData,
-            null,
-            null,
-            null,
-            new PlaceBetConsumer(this.definition, this.gameData),
-            null,
-            null,
-            null
-        );
+        const router = new Table.Routers.SocketRouter({
+            definition: this.definition,
+            gameData: this.gameData,
+            userSignInConsumer: null,
+            userDisconnectConsumer: null,
+            inGameConsumer: null,
+            placeBetConsumer: new PlaceBetConsumer(this.definition, this.gameData),
+            userSignInPublisher: null,
+            historyQuery: null,
+            roundQuery: null,
+        });
 
         router.init(socketClient);
     }
