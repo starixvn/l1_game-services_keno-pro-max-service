@@ -24,9 +24,9 @@ const run = async () => {
         null
     );
 
-    const gameCron = new Table.TableGameCron(definition, gameData, new SedieBot(definition, gameData));
-    const startup = new Startup(appConfigs, definition, gameData, gameCron);
+    const startup = new Startup(appConfigs, definition, gameData, null, null, new SedieBot(definition, gameData));
     const app = new SedieApp(appConfigs, definition, gameData, startup);
+
     await app.run();
 };
 
