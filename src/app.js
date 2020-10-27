@@ -2,7 +2,7 @@ import { Table } from "sc-game-base";
 
 import appConfigs from "./app-configs";
 import constants from "./constants";
-import SedieBot from "./crons/sedie-bot";
+import { SedieBot, SedieGameCron } from "./crons";
 import gameSettings from "./game-settings";
 import { generateResult, getSettlementResult } from "./helpers/result-helper";
 import { SedieBets, SedieTmpBets } from "./models/sedie-bets";
@@ -24,7 +24,8 @@ const run = async () => {
         null
     );
 
-    const startup = new Startup(appConfigs, definition, gameData, null, null, new SedieBot(definition, gameData));
+    const gameCron = new SedieGameCron(definition, gameData, new SedieBot(definition, gameData));
+    const startup = new Startup(appConfigs, definition, gameData, gameCron);
     const app = new SedieApp(appConfigs, definition, gameData, startup);
 
     await app.run();
