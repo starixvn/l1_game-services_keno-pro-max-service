@@ -5,7 +5,7 @@ import constants from "../constants";
 
 export default class SedieBot extends Table.TableGameBot {
     constructor(definition, gameData) {
-        super(definition, gameData);
+        super(definition, gameData, null);
 
         this.betChoiceRatio = {
             MainOpts: 90, //odd | even
