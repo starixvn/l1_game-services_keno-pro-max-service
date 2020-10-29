@@ -167,4 +167,8 @@ export default class SedieBot extends Table.TableGameBot {
 
         return chipList.length > 0 ? chipList[0] : this.getMinBet();
     }
+
+    getTotalBetAmount(currentBet) {
+        return currentBet ? this.definition.choices.reduce((total, choice) => total + currentBet[choice], 0) : 0;
+    }
 }
