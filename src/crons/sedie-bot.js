@@ -24,8 +24,8 @@ export default class SedieBot extends Table.TableGameBot {
         this.resetAllBets();
     }
 
-    async resetAllBotData() {
-        await super.resetAllBotData();
+    resetAllBotData() {
+        super.resetAllBotData();
         this.resetAllBets();
     }
 
