@@ -1,4 +1,4 @@
-import { VipSeDieBets, VipSeDieTmpBets } from "./vip-sedie-bets";
-import VipSeDieRounds from "./vip-sedie-rounds";
+import { KenoProMaxBets, KenoProMaxTmpBets } from "./keno-pro-max-bets";
+import KenoProMaxRounds from "./keno-pro-max-rounds";
 
-export { VipSeDieBets, VipSeDieTmpBets, VipSeDieRounds };
+export { KenoProMaxBets, KenoProMaxTmpBets, KenoProMaxRounds };

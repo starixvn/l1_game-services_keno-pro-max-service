@@ -41,7 +41,7 @@ export default {
     },
     sentry: {
         sentryUrl: "https://f236f54fc8094619bc566f3903943637@sentryuat.sabagame.com/188",
-        logIdentifier: "vipsedie",
+        logIdentifier: "kenopromax",
         env: "LOCAL",
     },
     authenticateSettings: {

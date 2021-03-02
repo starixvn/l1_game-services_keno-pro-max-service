@@ -1,4 +1,4 @@
-import VipSeDieBot from "./vip-sedie-bot";
-import VipSeDieGameCron from "./vip-sedie-game-cron";
+import KenoProMaxBot from "./keno-pro-max-bot";
+import KenoProMaxGameCron from "./keno-pro-max-game-cron";
 
-export { VipSeDieBot, VipSeDieGameCron };
+export { KenoProMaxBot, KenoProMaxGameCron };

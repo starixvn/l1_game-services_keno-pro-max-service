@@ -4,7 +4,7 @@ import { Core, Table } from "sc-game-base";
 
 import constants from "../constants";
 
-export default class VipSeDieBot extends Table.Crons.TableGameBot {
+export default class KenoProMaxBot extends Table.Crons.TableGameBot {
     /**
      * @param {Table.TableGameDefinition} definition
      * @param {Table.TableGameData} gameData
@@ -16,16 +16,14 @@ export default class VipSeDieBot extends Table.Crons.TableGameBot {
         super(definition, gameData, publisher, userInfosRepository, tempBetsRepository);
 
         this.betChoiceRatio = {
-            MainOpts: 90, //odd | even
-            SubOpts: 5, //white3 | red3
-            RareOpts: 1, //red4 | white4
-            EqualOpts: 4, //red2
+            MainOpts: 86, //big | small
+            SubOpts: 10, //even | odd
+            RareOpts: 4, //earth | fire | gold | water | wood
         };
 
-        this.mainOpts = ["even", "odd"];
-        this.subOpts = ["white3", "red3"];
-        this.rareOpts = ["red4", "white4"];
-        this.equalOpts = ["red2"];
+        this.mainOpts = ["big", "small"];
+        this.subOpts = ["even", "odd"];
+        this.rareOpts = ["earth", "fire", "gold", "water", "wood"];
 
         this.smallTicketRatio = 70;
         this.smallTickets = 0;
@@ -39,13 +37,15 @@ export default class VipSeDieBot extends Table.Crons.TableGameBot {
 
     resetAllBets() {
         this.allBets = {
+            big: 0,
+            small: 0,
             odd: 0,
             even: 0,
-            white3: 0,
-            red3: 0,
-            red4: 0,
-            white4: 0,
-            red2: 0,
+            earth: 0,
+            fire: 0,
+            gold: 0,
+            water: 0,
+            wood: 0,
         };
 
         this.smallTickets = 0;
@@ -66,10 +66,6 @@ export default class VipSeDieBot extends Table.Crons.TableGameBot {
             {
                 group: this.rareOpts,
                 underBetRatio: (this.getTotalAmountOnChoiceGroup(this.rareOpts) * 100) / totalBotBet < this.betChoiceRatio.RareOpts,
-            },
-            {
-                group: this.equalOpts,
-                underBetRatio: (this.getTotalAmountOnChoiceGroup(this.equalOpts) * 100) / totalBotBet < this.betChoiceRatio.EqualOpts,
             },
         ];
 
