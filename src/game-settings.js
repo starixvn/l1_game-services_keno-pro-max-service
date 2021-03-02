@@ -1,6 +1,6 @@
 export default {
     id: 8,
-    name: "KenoProMax",
+    name: "kenoProMax",
     durations: {
         wholeRound: 39,
         placingBets: 30,
