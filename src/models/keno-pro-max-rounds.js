@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import autoIncrement from "mongoose-auto-increment-reworked";
 
 const modelName = "KenoProMax_phien";
 
@@ -19,11 +18,10 @@ const settlementResultSchema = new mongoose.Schema(
 );
 
 const Schema = new mongoose.Schema({
+    id: { type: Number, required: true },
     result: { type: [Number], required: true },
     settlementResult: settlementResultSchema,
     time: { type: Date, default: new Date() },
 });
-
-Schema.plugin(autoIncrement.MongooseAutoIncrementID.plugin, { modelName, field: "id" });
 
 export default mongoose.model(modelName, Schema);

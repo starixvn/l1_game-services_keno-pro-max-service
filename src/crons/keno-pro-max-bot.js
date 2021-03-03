@@ -110,18 +110,6 @@ export default class KenoProMaxBot extends Table.Crons.TableGameBot {
                   );
         }
 
-        if (this.equalOpts.includes(choice)) {
-            const totalBet = this.getTotalAmountOnChoiceGroup(this.equalOpts);
-
-            maxBet = isSmallTicket
-                ? Math.min(maxBetOfSmallTicket, gameConfigs.bot_maxbet * 0.2, gameConfigs.choices_maxbet[choice])
-                : Math.min(
-                      gameConfigs.bot_maxbet * 0.5,
-                      (this.getAllBetAmount() * this.betChoiceRatio.EqualOpts) / 100 - totalBet,
-                      gameConfigs.choices_maxbet[choice]
-                  );
-        }
-
         if (this.mainOpts.includes(choice)) {
             maxBet = isSmallTicket ? maxBetOfSmallTicket : maxBet;
         }
