@@ -1,5 +1,5 @@
 export default {
-    hostingPort: 6001,
+    hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
         apiUrl: "http://10.2.189.51:6300",
@@ -39,7 +39,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://ad4ae5bf7b34446daddaa328b3c59e47@10.99.99.187:800/121",
+        sentryUrl: "http://077537a7357b4d5c9c55b984621aa14f@sentryuat.sabagame.com/222",
         logIdentifier: "kenopromax",
         env: "SIT",
     },

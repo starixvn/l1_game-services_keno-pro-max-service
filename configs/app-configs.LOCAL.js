@@ -1,5 +1,5 @@
 export default {
-    hostingPort: 8003,
+    hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
         apiUrl: "http://api.lumigame.com",
@@ -40,7 +40,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "https://c9800a77cde44628ae983c6dfabfc7d9@sentryuat.sabagame.com/120",
+        sentryUrl: "http://4124ada23b0c484f877a6ffd8eb690f0@sentry.lumigame.com/5",
         logIdentifier: "kenopromax",
         env: "LOCAL",
     },
