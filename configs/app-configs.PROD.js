@@ -21,6 +21,7 @@ export default {
             secret: "gameservices@20luminet&",
         },
         requestTimeout: 10000,
+        placeBetTimeout: 4500,
         useAuthenticate: true,
     },
     socketOptions: {
@@ -33,7 +34,7 @@ export default {
     enabledLogs: true,
     database: {
         url:
-            "mongodb://lmn_backend:M7K4ttH%2AtZ3ml%3F%29%7CA%5DjN4%3FLBhwF%266IO%3C@10.99.99.54:27101,10.99.99.53:27102/?replicaSet=SabaMain",
+            "mongodb://lmn_backend:%21%23x97%25uYZv%2A%5E%25%3E%7C%2Aqg%40E7FHi%3F9l%7B9r%3CK@10.99.99.53:37101,10.99.99.54:37102/?replicaSet=L2_SabaMain",
         options: {
             dbName: "minigame",
             useNewUrlParser: true,
@@ -42,7 +43,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://2bc909c5b3b9472e99400a6e41624e0b@10.99.99.187:803/131",
+        sentryUrl: "http://ade3416296d5438f9dfebf55f7c999dd@10.99.99.187:803/137",
         logIdentifier: "kenopromax",
         env: "PROD",
     },
@@ -52,17 +53,17 @@ export default {
     adminSecretKey: "asWDEer4yGdgsdqR4uqmKQZgh",
     enableCorsWs: true,
     corsUrls: [
-        "http://sabagame.com",
-        "http://www.sabagame.com",
-        "https://sabagame.com",
-        "https://www.sabagame.com",
-        "https://www.gamesaba.com",
-        "https://gamesaba.com",
-        "http://www.gamesaba.com",
-        "http://gamesaba.com",
-        "http://admg.sabagame.com",
-        "https://admg.sabagame.com",
-        "http://adm.sabagame.com",
-        "https://adm.sabagame.com",
+        "https://sabagame.net",
+        "https://www.sabagame.net",
+        "http://sabagame.net",
+        "http://www.sabagame.net",
+        "https://gamesaba.net",
+        "https://www.gamesaba.net",
+        "http://gamesaba.net",
+        "http://www.gamesaba.net",
+        "http://admg.sabagame.net",
+        "https://admg.sabagame.net",
+        "http://adm.sabagame.net",
+        "https://adm.sabagame.net",
     ],
 };

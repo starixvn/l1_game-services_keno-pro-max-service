@@ -10,6 +10,7 @@ export default {
         },
         useAuthenticate: true,
         requestTimeout: 10000,
+        placeBetTimeout: 4500,
         enabledApiLogs: true,
     },
     mainServerApiSettings: {
@@ -32,7 +33,7 @@ export default {
     },
     enabledLogs: true,
     database: {
-        url: "mongodb://lmn_backend:LmnBackend%40517@10.99.99.187:27301/?replicaSet=SabaSIT",
+        url: "mongodb://lmn_backend:LmnBackend%40517@10.99.99.187:37301/?replicaSet=SabaL2SIT",
         options: {
             dbName: "minigame",
             useNewUrlParser: true,
@@ -40,7 +41,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://077537a7357b4d5c9c55b984621aa14f@10.99.99.187:800/222",
+        sentryUrl: "http://1bc1f16e5e794348b154dba584fecbfa@10.99.99.187:803/240",
         logIdentifier: "kenopromax",
         env: "SIT",
     },
@@ -50,11 +51,11 @@ export default {
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     enableCorsWs: true,
     corsUrls: [
-        "http://localhost:7456",
-        "http://sit.sabagame.com",
-        "https://sit.sabagame.com",
-        "https://sit-admg.sabagame.com",
-        "http://sit-adm.sabagame.com",
-        "https://sit-adm.sabagame.com",
+        "https://sit.sabagame.net",
+        "http://sit.sabagame.net",
+        "http://sit-admg.sabagame.net",
+        "https://sit-admg.sabagame.net",
+        "http://sit-adm.sabagame.net",
+        "https://sit-adm.sabagame.net",
     ],
 };

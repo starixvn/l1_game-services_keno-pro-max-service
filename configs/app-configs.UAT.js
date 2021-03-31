@@ -21,6 +21,7 @@ export default {
             secret: "gameservices@20luminet&",
         },
         requestTimeout: 10000,
+        placeBetTimeout: 4500,
         useAuthenticate: true,
     },
     socketOptions: {
@@ -32,7 +33,7 @@ export default {
     },
     enabledLogs: true,
     database: {
-        url: "mongodb://lmn_backend:LmnBackend%4022027@10.99.99.187:27201/?replicaSet=SabaUAT",
+        url: "mongodb://lmn_backend:LmnBackend%4022027@10.99.99.187:37201/?replicaSet=SabaL2UAT",
         options: {
             dbName: "minigame",
             useNewUrlParser: true,
@@ -41,7 +42,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://077537a7357b4d5c9c55b984621aa14f@10.99.99.187:800/222",
+        sentryUrl: "http://1bc1f16e5e794348b154dba584fecbfa@10.99.99.187:803/240",
         logIdentifier: "kenopromax",
         env: "UAT",
     },
@@ -50,5 +51,12 @@ export default {
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     enableCorsWs: true,
-    corsUrls: ["http://uat.sabagame.com", "https://uat.sabagame.com", "http://uat-adm.sabagame.com", "https://uat-adm.sabagame.com"],
+    corsUrls: [
+        "https://uat.sabagame.net",
+        "http://uat.sabagame.net",
+        "http://uat-admg.sabagame.net",
+        "https://uat-admg.sabagame.net",
+        "http://uat-adm.sabagame.net",
+        "https://uat-adm.sabagame.net",
+    ],
 };
