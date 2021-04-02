@@ -42,7 +42,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://2bc909c5b3b9472e99400a6e41624e0b@sentry.sabagame.com/131",
+        sentryUrl: "http://2bc909c5b3b9472e99400a6e41624e0b@10.99.99.187:803/131",
         logIdentifier: "kenopromax",
         env: "PROD",
     },
