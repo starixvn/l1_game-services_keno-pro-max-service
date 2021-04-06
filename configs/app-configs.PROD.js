@@ -1,9 +1,9 @@
 export default {
-    hostingPort: 8001,
+    hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "http://10.2.189.50:8300",
-        authUrl: "http://10.2.189.50:8303",
+        apiUrl: "http://l1_game_api_prod:5000",
+        authUrl: "http://l1_auth_api_prod:5000",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
@@ -14,14 +14,13 @@ export default {
         enabledApiLogs: true,
     },
     mainServerApiSettings: {
-        url: "http://10.2.189.50:8888/main/api",
+        url: "http://l1_games_server_prod:5000/api",
         auth: {
-            url: "http://10.2.189.50:8303",
+            url: "http://l1_auth_api_prod:5000",
             id: "game-services",
             secret: "gameservices@20luminet&",
         },
         requestTimeout: 10000,
-        placeBetTimeout: 4500,
         useAuthenticate: true,
     },
     socketOptions: {
@@ -29,21 +28,22 @@ export default {
         pingTimeout: 60 * 1000,
         transports: ["websocket"],
         allowUpgrades: false,
+        perMessageDeflate: false,
     },
     enabledLogs: true,
     database: {
-        url:
-            "mongodb://lmn_backend:M7K4ttH%2AtZ3ml%3F%29%7CA%5DjN4%3FLBhwF%266IO%3C@10.99.99.54:27101,10.99.99.53:27102/?replicaSet=SabaMain",
-        options: {
-            dbName: "minigame",
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            auto_reconnect: true,
-        },
+        // url:
+        //     "mongodb://lmn_backend:M7K4ttH%2AtZ3ml%3F%29%7CA%5DjN4%3FLBhwF%266IO%3C@10.99.99.54:27101,10.99.99.53:27102/?replicaSet=SabaMain",
+        // options: {
+        //     dbName: "minigame",
+        //     useNewUrlParser: true,
+        //     useUnifiedTopology: true,
+        //     auto_reconnect: true,
+        // },
     },
     sentry: {
-        sentryUrl: "http://26db550e29da4d038d1bb78ce1b79330@10.99.99.187:803/108",
-        logIdentifier: "sedie",
+        sentryUrl: "http://2bc909c5b3b9472e99400a6e41624e0b@10.99.99.187:803/131",
+        logIdentifier: "kenopromax",
         env: "PROD",
     },
     authenticateSettings: {

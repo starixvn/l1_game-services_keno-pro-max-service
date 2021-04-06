@@ -1,4 +1,4 @@
 export default {
-    resetTotalBets: { even: 0, odd: 0, red2: 0, red3: 0, red4: 0, white3: 0, white4: 0 },
-    chips: [5000, 2000, 1000, 500, 200, 100, 50, 20, 10],
+    resetTotalBets: { big: 0, small: 0, odd: 0, even: 0, gold: 0, wood: 0, water: 0, fire: 0, earth: 0 },
+    chips: [1000, 500, 200, 100, 50, 10, 5, 1],
 };

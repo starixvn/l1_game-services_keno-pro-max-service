@@ -1,22 +1,21 @@
 export default {
-    hostingPort: 6001,
+    hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "http://10.2.189.51:6300",
-        authUrl: "http://10.2.189.51:6303",
+        apiUrl: "http://l1_game_api_sit:5000",
+        authUrl: "http://l1_auth_api_sit:5000",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
         },
         useAuthenticate: true,
         requestTimeout: 10000,
-        placeBetTimeout: 4500,
         enabledApiLogs: true,
     },
     mainServerApiSettings: {
-        url: "http://10.2.189.51:7777/sit/main/api",
+        url: "http://l1_game_server_sit:5000/api",
         auth: {
-            url: "http://10.2.189.51:6303",
+            url: "http://l1_auth_api_sit:5000",
             id: "game-services",
             secret: "gameservices@20luminet&",
         },
@@ -29,6 +28,7 @@ export default {
         pingTimeout: 60 * 1000,
         transports: ["websocket"],
         allowUpgrades: false,
+        perMessageDeflate: false,
     },
     enabledLogs: true,
     database: {
@@ -40,8 +40,8 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://ad4ae5bf7b34446daddaa328b3c59e47@10.99.99.187:800/121",
-        logIdentifier: "vipsedie",
+        sentryUrl: "http://077537a7357b4d5c9c55b984621aa14f@10.99.99.187:800/222",
+        logIdentifier: "kenopromax",
         env: "SIT",
     },
     authenticateSettings: {

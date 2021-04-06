@@ -1,9 +1,9 @@
 export default {
-    hostingPort: 8083,
+    hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "http://api.lumigame.com",
-        authUrl: "http://auth.lumigame.com",
+        apiUrl: "http://l1-api1.lumigame.com",
+        authUrl: "http://l1-auth1.lumigame.com",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
@@ -11,17 +11,16 @@ export default {
         useAuthenticate: true,
         requestTimeout: 10000,
         placeBetTimeout: 4500,
-        enableApiLogs: true,
+        enabledApiLogs: true,
     },
     mainServerApiSettings: {
         url: "http://localhost:8080/api",
         auth: {
-            url: "http://auth.lumigame.com",
+            url: "http://l1-auth1.lumigame.com",
             id: "game-services",
             secret: "gameservices@20luminet&",
         },
         requestTimeout: 10000,
-        placeBetTimeout: 4500,
         useAuthenticate: true,
     },
     socketOptions: {
@@ -29,6 +28,7 @@ export default {
         pingTimeout: 60 * 1000,
         transports: ["websocket"],
         allowUpgrades: false,
+        perMessageDeflate: false,
     },
     enabledLogs: true,
     database: {
@@ -41,8 +41,8 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "https://2f1c5c3152b24eadb231ba5aae4c38f5@sentryuat.sabagame.com/120",
-        logIdentifier: "vipsedie",
+        sentryUrl: "http://4124ada23b0c484f877a6ffd8eb690f0@sentry.lumigame.com/5",
+        logIdentifier: "kenopromax",
         env: "LOCAL",
     },
     authenticateSettings: {

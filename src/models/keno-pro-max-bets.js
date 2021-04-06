@@ -5,13 +5,15 @@ const schema = new mongoose.Schema({
     name: { type: String, required: true },
     phien: { type: Number, required: true },
 
+    big: { type: Number, default: 0 },
+    small: { type: Number, default: 0 },
     odd: { type: Number, default: 0 },
     even: { type: Number, default: 0 },
-    red2: { type: Number, default: 0 },
-    red3: { type: Number, default: 0 },
-    red4: { type: Number, default: 0 },
-    white3: { type: Number, default: 0 },
-    white4: { type: Number, default: 0 },
+    gold: { type: Number, default: 0 },
+    wood: { type: Number, default: 0 },
+    water: { type: Number, default: 0 },
+    fire: { type: Number, default: 0 },
+    earth: { type: Number, default: 0 },
 
     thanhtoan: { type: Boolean, default: false },
     betwin: { type: Number, default: 0 },
@@ -23,7 +25,7 @@ const schema = new mongoose.Schema({
     freeBet: { type: Boolean, default: false },
 });
 
-const bets = mongoose.model("VipSeDie_cuoc", schema);
-const tmpBets = mongoose.model("VipSeDie_tmpcuoc", schema);
+const bets = mongoose.model("KenoProMax_cuoc", schema);
+const tmpBets = mongoose.model("KenoProMax_tmpcuoc", schema);
 
-export { bets as SedieBets, tmpBets as SedieTmpBets };
+export { bets as KenoProMaxBets, tmpBets as KenoProMaxTmpBets };

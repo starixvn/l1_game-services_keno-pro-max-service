@@ -14,14 +14,13 @@ export default {
         enabledApiLogs: true,
     },
     mainServerApiSettings: {
-        url: "http://haproxy.lumigame.com:7002/main/api",
+        url: "http://haproxy.lumigame.com:7001/main/api",
         auth: {
             url: "http://l1-auth1.lumigame.com",
             id: "game-services",
             secret: "gameservices@20luminet&",
         },
         requestTimeout: 10000,
-        placeBetTimeout: 4500,
         useAuthenticate: true,
     },
     socketOptions: {
@@ -29,6 +28,7 @@ export default {
         pingTimeout: 60 * 1000,
         transports: ["websocket"],
         allowUpgrades: false,
+        perMessageDeflate: false,
     },
     enabledLogs: true,
     database: {
@@ -41,8 +41,8 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "https://f236f54fc8094619bc566f3903943637@sentryuat.sabagame.com/188",
-        logIdentifier: "vipsedie",
+        sentryUrl: "https://4124ada23b0c484f877a6ffd8eb690f0@sentry.lumigame.com/5",
+        logIdentifier: "kenopromax",
         env: "LOCAL",
     },
     authenticateSettings: {
@@ -50,5 +50,11 @@ export default {
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     enableCorsWs: true,
-    corsUrls: ["http://localhost:7456", "http://localhost:7000", "http://l1-games1.lumigame.com", "http://l1-admin1.lumigame.com"],
+    corsUrls: [
+        "http://localhost:7456",
+        "http://localhost:7000",
+        "http://localhost:3000",
+        "http://l1-games1.lumigame.com",
+        "http://l1-admin1.lumigame.com",
+    ],
 };

@@ -1,23 +1,29 @@
+import mongoose from "mongoose";
 import { helpers } from "sc-common";
-import { Table } from "sc-game-base";
+import { Core, Table } from "sc-game-base";
 
 import constants from "../constants";
 
-export default class SedieBot extends Table.TableGameBot {
-    constructor(definition, gameData) {
-        super(definition, gameData, null);
+export default class KenoProMaxBot extends Table.Crons.TableGameBot {
+    /**
+     * @param {Table.TableGameDefinition} definition
+     * @param {Table.TableGameData} gameData
+     * @param {Core.BaseEventPublishers.BaseEventPublisher} publisher
+     * @param {mongoose.Model} userInfosRepository
+     * @param {mongoose.Model} tempBetsRepository
+     */
+    constructor(definition, gameData, publisher, userInfosRepository, tempBetsRepository) {
+        super(definition, gameData, publisher, userInfosRepository, tempBetsRepository);
 
         this.betChoiceRatio = {
-            MainOpts: 90, //odd | even
-            SubOpts: 5, //white3 | red3
-            RareOpts: 1, //red4 | white4
-            EqualOpts: 4, //red2
+            MainOpts: 86, //big | small
+            SubOpts: 10, //even | odd
+            RareOpts: 4, //earth | fire | gold | water | wood
         };
 
-        this.mainOpts = ["even", "odd"];
-        this.subOpts = ["white3", "red3"];
-        this.rareOpts = ["red4", "white4"];
-        this.equalOpts = ["red2"];
+        this.mainOpts = ["big", "small"];
+        this.subOpts = ["even", "odd"];
+        this.rareOpts = ["earth", "fire", "gold", "water", "wood"];
 
         this.smallTicketRatio = 70;
         this.smallTickets = 0;
@@ -31,13 +37,15 @@ export default class SedieBot extends Table.TableGameBot {
 
     resetAllBets() {
         this.allBets = {
+            big: 0,
+            small: 0,
             odd: 0,
             even: 0,
-            white3: 0,
-            red3: 0,
-            red4: 0,
-            white4: 0,
-            red2: 0,
+            earth: 0,
+            fire: 0,
+            gold: 0,
+            water: 0,
+            wood: 0,
         };
 
         this.smallTickets = 0;
@@ -58,10 +66,6 @@ export default class SedieBot extends Table.TableGameBot {
             {
                 group: this.rareOpts,
                 underBetRatio: (this.getTotalAmountOnChoiceGroup(this.rareOpts) * 100) / totalBotBet < this.betChoiceRatio.RareOpts,
-            },
-            {
-                group: this.equalOpts,
-                underBetRatio: (this.getTotalAmountOnChoiceGroup(this.equalOpts) * 100) / totalBotBet < this.betChoiceRatio.EqualOpts,
             },
         ];
 
@@ -106,18 +110,6 @@ export default class SedieBot extends Table.TableGameBot {
                   );
         }
 
-        if (this.equalOpts.includes(choice)) {
-            const totalBet = this.getTotalAmountOnChoiceGroup(this.equalOpts);
-
-            maxBet = isSmallTicket
-                ? Math.min(maxBetOfSmallTicket, gameConfigs.bot_maxbet * 0.2, gameConfigs.choices_maxbet[choice])
-                : Math.min(
-                      gameConfigs.bot_maxbet * 0.5,
-                      (this.getAllBetAmount() * this.betChoiceRatio.EqualOpts) / 100 - totalBet,
-                      gameConfigs.choices_maxbet[choice]
-                  );
-        }
-
         if (this.mainOpts.includes(choice)) {
             maxBet = isSmallTicket ? maxBetOfSmallTicket : maxBet;
         }
@@ -127,6 +119,7 @@ export default class SedieBot extends Table.TableGameBot {
 
     getRandomChoiceFromGroup(group) {
         const randomIndex = (Math.random() * group.length) >> 0;
+
         return group[randomIndex];
     }
 
