@@ -43,7 +43,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://ade3416296d5438f9dfebf55f7c999dd@10.99.99.187:803/137",
+        sentryUrl: "http://2b5b82bf699543ddb296364568bc30be@10.99.99.187:803/52",
         logIdentifier: "kenopromax",
         env: "PROD",
     },
