@@ -1,9 +1,9 @@
 export default {
-    hostingPort: 8001,
+    hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "http://10.2.189.50:8300",
-        authUrl: "http://10.2.189.50:8303",
+        apiUrl: "http://l2_game_api_prod:5000",
+        authUrl: "http://l2_auth_api_prod:5000",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
@@ -14,9 +14,9 @@ export default {
         enabledApiLogs: true,
     },
     mainServerApiSettings: {
-        url: "http://10.2.189.50:8888/main/api",
+        url: "http://l2_game_server_prod:5000/api",
         auth: {
-            url: "http://10.2.189.50:8303",
+            url: "http://l2_auth_api_prod:5000",
             id: "game-services",
             secret: "gameservices@20luminet&",
         },
@@ -29,21 +29,22 @@ export default {
         pingTimeout: 60 * 1000,
         transports: ["websocket"],
         allowUpgrades: false,
+        perMessageDeflate: false,
     },
     enabledLogs: true,
     database: {
-        url:
-            "mongodb://lmn_backend:M7K4ttH%2AtZ3ml%3F%29%7CA%5DjN4%3FLBhwF%266IO%3C@10.99.99.54:27101,10.99.99.53:27102/?replicaSet=SabaMain",
-        options: {
-            dbName: "minigame",
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            auto_reconnect: true,
-        },
+        // url:
+        //     "mongodb://lmn_backend:%21%23x97%25uYZv%2A%5E%25%3E%7C%2Aqg%40E7FHi%3F9l%7B9r%3CK@10.99.99.53:37101,10.99.99.54:37102/?replicaSet=L2_SabaMain",
+        // options: {
+        //     dbName: "minigame",
+        //     useNewUrlParser: true,
+        //     useUnifiedTopology: true,
+        //     auto_reconnect: true,
+        // },
     },
     sentry: {
-        sentryUrl: "http://26db550e29da4d038d1bb78ce1b79330@10.99.99.187:803/108",
-        logIdentifier: "sedie",
+        sentryUrl: "http://2b5b82bf699543ddb296364568bc30be@10.99.99.187:803/52",
+        logIdentifier: "kenopromax",
         env: "PROD",
     },
     authenticateSettings: {
@@ -52,17 +53,17 @@ export default {
     adminSecretKey: "asWDEer4yGdgsdqR4uqmKQZgh",
     enableCorsWs: true,
     corsUrls: [
-        "http://sabagame.com",
-        "http://www.sabagame.com",
-        "https://sabagame.com",
-        "https://www.sabagame.com",
-        "https://www.gamesaba.com",
-        "https://gamesaba.com",
-        "http://www.gamesaba.com",
-        "http://gamesaba.com",
-        "http://admg.sabagame.com",
-        "https://admg.sabagame.com",
-        "http://adm.sabagame.com",
-        "https://adm.sabagame.com",
+        "https://sabagame.net",
+        "https://www.sabagame.net",
+        "http://sabagame.net",
+        "http://www.sabagame.net",
+        "https://gamesaba.net",
+        "https://www.gamesaba.net",
+        "http://gamesaba.net",
+        "http://www.gamesaba.net",
+        "http://admg.sabagame.net",
+        "https://admg.sabagame.net",
+        "http://adm.sabagame.net",
+        "https://adm.sabagame.net",
     ],
 };

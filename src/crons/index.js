@@ -1,4 +1,4 @@
-import SedieBot from "./sedie-bot";
-import SedieGameCron from "./sedie-game-cron";
+import KenoProMaxBot from "./keno-pro-max-bot";
+import KenoProMaxGameCron from "./keno-pro-max-game-cron";
 
-export { SedieBot, SedieGameCron };
+export { KenoProMaxBot, KenoProMaxGameCron };

@@ -1,9 +1,9 @@
 export default {
-    hostingPort: 8003,
+    hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "http://api.lumigame.com",
-        authUrl: "http://auth.lumigame.com",
+        apiUrl: "http://l2_game_api_local:5000",
+        authUrl: "http://l2_auth_api_local:5000",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
@@ -14,9 +14,9 @@ export default {
         enabledApiLogs: true,
     },
     mainServerApiSettings: {
-        url: "http://haproxy.lumigame.com:7000/main/api",
+        url: "http://l2_game_server_local:5000/api",
         auth: {
-            url: "http://auth.lumigame.com",
+            url: "http://l2_auth_api_local:5000",
             id: "game-services",
             secret: "gameservices@20luminet&",
         },
@@ -29,10 +29,11 @@ export default {
         pingTimeout: 60 * 1000,
         transports: ["websocket"],
         allowUpgrades: false,
+        perMessageDeflate: false,
     },
     enabledLogs: true,
     database: {
-        url: "mongodb://lmn_backend:LmnBackend@10.10.50.13:27101/?replicaSet=L1Local",
+        url: "mongodb://lmn_backend:LmnBackend@10.10.50.13:37101/?replicaSet=L2Local",
         options: {
             dbName: "minigame",
             useNewUrlParser: true,
@@ -41,8 +42,8 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "https://c9800a77cde44628ae983c6dfabfc7d9@sentryuat.sabagame.com/120",
-        logIdentifier: "vipsedie",
+        sentryUrl: "https://acb36eb835d948d68c1aad9873754d51@sentry.lumigame.com/27",
+        logIdentifier: "kenopromax",
         env: "LOCAL",
     },
     authenticateSettings: {
@@ -50,5 +51,5 @@ export default {
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
     enableCorsWs: true,
-    corsUrls: ["http://localhost:7456", "http://localhost:7000", "http://games.lumigame.com", "http://admin.lumigame.com"],
+    corsUrls: ["http://localhost:7456", "http://l2-games.lumigame.com", "http://l2-admin.lumigame.com", "http://localhost:7000"],
 };

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
-import { middlewares } from "sc-common";
+import { KenoProMaxBets, KenoProMaxTmpBets } from "./keno-pro-max-bets";
+import KenoProMaxRounds from "./keno-pro-max-rounds";
 
-export default (config) => middlewares.database.configureDatabase(mongoose, config);
+export { KenoProMaxBets, KenoProMaxTmpBets, KenoProMaxRounds };

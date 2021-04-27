@@ -1,28 +1,58 @@
+import Chance from "chance";
+import RandomJs from "random-js";
+
+const { Random, MersenneTwister19937 } = RandomJs;
+const chance = new Chance();
+const random = new Random(MersenneTwister19937.autoSeed());
+const seeds = [...Array(81).keys()].slice(1);
+
+const shuffleThenPickOut20ByChance = () => chance.pickset(seeds, 20);
+
+const random20UniqueNumbersByChance = () => chance.unique(chance.natural, 20, { min: 1, max: 80 });
+
+const shuffleThenPickOut20ByRandomJs = () => random.shuffle([...seeds]).slice(0, 20);
+
+const randomlyPick20NumbersByRandomJs = () => random.sample(seeds, 20);
+
+const algorithms = [
+    shuffleThenPickOut20ByChance,
+    random20UniqueNumbersByChance,
+    shuffleThenPickOut20ByRandomJs,
+    randomlyPick20NumbersByRandomJs,
+];
+
 const settlementRuleEntries = Object.entries({
-    odd: (totalReds) => totalReds % 2 === 1,
-    even: (totalReds) => totalReds % 2 === 0,
-    red2: (totalReds) => totalReds === 2,
-    red3: (totalReds) => totalReds === 3,
-    red4: (totalReds) => totalReds === 4,
-    white3: (totalReds) => totalReds === 1,
-    white4: (totalReds) => totalReds === 0,
+    big: (totalPoints) => totalPoints >= 811,
+    small: (totalPoints) => totalPoints <= 810,
+    odd: (totalPoints) => totalPoints % 2 === 1,
+    even: (totalPoints) => totalPoints % 2 === 0,
+    gold: (totalPoints) => 210 <= totalPoints && totalPoints <= 695,
+    wood: (totalPoints) => 696 <= totalPoints && totalPoints <= 763,
+    water: (totalPoints) => 764 <= totalPoints && totalPoints <= 855,
+    fire: (totalPoints) => 856 <= totalPoints && totalPoints <= 923,
+    earth: (totalPoints) => 924 <= totalPoints && totalPoints <= 1410,
 });
 
 export const generateResult = () => {
-    const red1 = (Math.random() * 2) >> 0 !== 0;
-    const red2 = Math.floor(Math.random() * 6) + Math.floor(Math.random() * 6) + Math.floor(Math.random() * 6) + 3 <= 10;
-    const red3 = (Math.floor(Math.random() * 6) + Math.floor(Math.random() * 6) + Math.floor(Math.random() * 6) + 3) % 2 === 0;
-    const red4 = (Math.floor(Math.random() * 10000) + 1) % 2 !== 0;
+    const randomSelection = chance.natural({
+        min: 0,
+        max: algorithms.length - 1,
+    });
+    let result = algorithms[randomSelection]();
 
-    return { red1, red2, red3, red4 };
+    result.sort((pre, next) => pre - next);
+
+    return result;
 };
 
 export const getSettlementResult = (roundResult) => {
-    const totalReds = Object.values(roundResult).filter((value) => value === true).length;
+    const totalPoints = roundResult.reduce((total, number) => total + number, 0);
 
-    return settlementRuleEntries.reduce((result, [choice, rule]) => {
-        result[choice] = rule(totalReds);
+    const settlementResult = settlementRuleEntries.reduce((settlementTempResult, [choice, rule]) => {
+        settlementTempResult[choice] = rule(totalPoints);
 
-        return result;
+        return settlementTempResult;
     }, {});
+
+    return settlementResult;
 };

@@ -1,13 +1,13 @@
 export default {
-    id: 22,
-    name: "VipSeDie",
+    id: 8,
+    name: "KenoProMax",
     durations: {
         wholeRound: 39,
         placingBets: 30,
         lockingBet: 5,
         shakeThePlateDuration: 2,
     },
-    choices: ["even", "odd", "red2", "red3", "red4", "white3", "white4"],
-    choicesMapper: { even: 1, odd: 2, red2: 3, red3: 4, red4: 5, white3: 6, white4: 7 },
+    choices: ["big", "small", "odd", "even", "gold", "wood", "water", "fire", "earth"],
+    choicesMapper: { big: 1, small: 2, odd: 3, even: 4, gold: 5, wood: 6, water: 7, fire: 8, earth: 9 },
     defaultBetTracks: {},
 };
