@@ -41,7 +41,7 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "http://4124ada23b0c484f877a6ffd8eb690f0@sentry.lumigame.com/5",
+        sentryUrl: "https://13f39b8359404ed5aec23655e64ccf78@sentry.lumigame.com/2",
         logIdentifier: "kenopromax",
         env: "LOCAL",
     },
