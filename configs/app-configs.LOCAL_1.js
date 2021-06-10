@@ -2,8 +2,8 @@ export default {
     hostingPort: 5000,
     apiSettings: {
         enabledApi: true,
-        apiUrl: "http://l1-api1.lumigame.com",
-        authUrl: "http://l1-auth1.lumigame.com",
+        apiUrl: "http://l1_game_api_local_1:5000",
+        authUrl: "http://l1_auth_api_local_1:5000",
         client: {
             id: "game-server",
             secret: "gameserver@20luminet&",
@@ -14,9 +14,9 @@ export default {
         enabledApiLogs: true,
     },
     mainServerApiSettings: {
-        url: "http://haproxy.lumigame.com:7001/main/api",
+        url: "http://l1_game_server_local_1:5000/api",
         auth: {
-            url: "http://l1-auth1.lumigame.com",
+            url: "http://l1_auth_api_local_1:5000",
             id: "game-services",
             secret: "gameservices@20luminet&",
         },
@@ -41,9 +41,9 @@ export default {
         },
     },
     sentry: {
-        sentryUrl: "https://4124ada23b0c484f877a6ffd8eb690f0@sentry.lumigame.com/5",
+        sentryUrl: "https://13f39b8359404ed5aec23655e64ccf78@sentry.lumigame.com/2",
         logIdentifier: "kenopromax",
-        env: "LOCAL",
+        env: "LOCAL-1",
     },
     authenticateSettings: {
         audiences: ["api", "admin-api"],
@@ -54,7 +54,7 @@ export default {
         "http://localhost:7456",
         "http://localhost:7000",
         "http://localhost:3000",
-        "http://l1-games1.lumigame.com",
-        "http://l1-admin1.lumigame.com",
+        "https://l1-games1.lumigame.com",
+        "https://l1-admin1.lumigame.com",
     ],
 };
