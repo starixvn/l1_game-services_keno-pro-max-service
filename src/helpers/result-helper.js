@@ -1,7 +1,6 @@
 import Chance from "chance";
-import RandomJs from "random-js";
+import { Random, MersenneTwister19937 } from "random-js";
 
-const { Random, MersenneTwister19937 } = RandomJs;
 const chance = new Chance();
 const random = new Random(MersenneTwister19937.autoSeed());
 const seeds = [...Array(81).keys()].slice(1);
@@ -38,21 +37,17 @@ export const generateResult = () => {
         min: 0,
         max: algorithms.length - 1,
     });
-    let result = algorithms[randomSelection]();
+    const result = algorithms[randomSelection]();
 
-    result.sort((pre, next) => pre - next);
-
-    return result;
+    return result.sort((pre, next) => pre - next);
 };
 
 export const getSettlementResult = (roundResult) => {
     const totalPoints = roundResult.reduce((total, number) => total + number, 0);
 
-    const settlementResult = settlementRuleEntries.reduce((settlementTempResult, [choice, rule]) => {
+    return settlementRuleEntries.reduce((settlementTempResult, [choice, rule]) => {
         settlementTempResult[choice] = rule(totalPoints);
 
         return settlementTempResult;
     }, {});
-
-    return settlementResult;
 };

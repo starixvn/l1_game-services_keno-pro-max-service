@@ -9,7 +9,7 @@ describe("KenoProMaxPlaceBetConsumer test", () => {
     const publisher = stub(Core.BaseEventPublishers.BaseEventPublisher);
     const consumer = new KenoProMaxPlaceBetConsumer(definition, gameData, publisher);
 
-    it("inherit PlaceBetConsumer", () => {
+    it("should inherit PlaceBetConsumer", () => {
         expect(consumer instanceof Core.BaseEventConsumers.PlaceBetConsumer);
     });
 });
@@ -24,7 +24,7 @@ describe("BettingTimeValidation test", () => {
     });
     const publisher = stub(Core.BaseEventPublishers.BaseEventPublisher);
 
-    it("valid bet, bet on betting time and gameConfig enabled true", () => {
+    it("should return valid bet, bet on betting time and gameConfig enabled true", () => {
         const gameData = new Table.TableGameData(20);
         gameData.gameConfigs = {
             enabled: true,
@@ -37,7 +37,7 @@ describe("BettingTimeValidation test", () => {
         expect(anyFailure).toBe(false);
     });
 
-    it("invalid bet, gameConfig enabled fail", () => {
+    it("should return invalid bet, gameConfig enabled fail", () => {
         const gameData = new Table.TableGameData(20);
         gameData.gameConfigs = {
             enabled: false,
@@ -49,7 +49,7 @@ describe("BettingTimeValidation test", () => {
         expect(actualResult[0].failure).toBe(true);
     });
 
-    it("invalid bet, place bet on shaking time", () => {
+    it("should return invalid bet, place bet on shaking time", () => {
         const gameData = new Table.TableGameData(31);
         gameData.gameConfigs = {
             enabled: true,
@@ -61,7 +61,7 @@ describe("BettingTimeValidation test", () => {
         expect(actualResult[1].failure).toBe(true);
     });
 
-    it("invalid bet, place bet on waiting time", () => {
+    it("should return invalid bet, place bet on waiting time", () => {
         const gameData = new Table.TableGameData(34);
         gameData.gameConfigs = {
             enabled: true,
