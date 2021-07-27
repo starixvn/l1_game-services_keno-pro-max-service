@@ -1,9 +1,10 @@
 import { stub, stubMongooseModelStupidly } from "jest-micro-auto-stub";
 import mongoose from "mongoose";
 import { Core, Table } from "sc-game-base";
-import KenoProMaxBot from "../keno-pro-max-bot";
-import gameSettings from "../../game-settings";
-import constants from "../../constants";
+
+import constants from "../../src/constants";
+import KenoProMaxBot from "../../src/crons/keno-pro-max-bot";
+import gameSettings from "../../src/game-settings";
 
 const definition = new Table.TableGameDefinition(gameSettings);
 const gameData = new Table.TableGameData(0);

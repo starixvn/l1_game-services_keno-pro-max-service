@@ -1,4 +1,4 @@
-import { generateResult, getSettlementResult } from "../result-helper";
+import { generateResult, getSettlementResult } from "../../src/helpers/result-helper";
 
 describe("generateResult test", () => {
     it("should return 20 numbers having value between 1 and 80", () => {
