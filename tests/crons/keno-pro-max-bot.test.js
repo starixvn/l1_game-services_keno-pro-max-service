@@ -38,18 +38,18 @@ const totalBetTemplate = {
 
 gameData.gameConfigs = {
     choices_maxbet: {
-        big: 2000,
-        small: 2000,
-        even: 2000,
-        odd: 2000,
-        earth: 500,
-        fire: 1500,
-        gold: 500,
-        water: 2000,
-        wood: 1500,
+        big: 2_000_000,
+        small: 2_000_000,
+        even: 2_000_000,
+        odd: 2_000,
+        earth: 500_000,
+        fire: 1_500_000,
+        gold: 500_000,
+        water: 2_000_000,
+        wood: 1_500_000,
     },
-    minbet: 1,
-    bot_maxbet: 200,
+    minbet: 10_000,
+    bot_maxbet: 200_000,
 };
 
 describe("KenoProMaxBot inherit test", () => {
@@ -149,7 +149,7 @@ describe("getMaxBet test", () => {
 
         const actualResult = kenoProMaxBot.getMaxBet({ ...bot, betOnChoices: { ...totalBetTemplate } }, choice);
 
-        expect(actualResult).toBeWithin(minbet, maxBet);
+        expect(actualResult).toBeWithin(minbet, maxBet + 1);
     });
 });
 
@@ -239,7 +239,7 @@ describe("updateBotInRoomData test", () => {
 
 describe("convertAmountToChip test", () => {
     it("should return chip amount on chip list", () => {
-        const amount = 46;
+        const amount = 46_000;
 
         const chip = kenoProMaxBot.convertAmountToChip(amount);
 
