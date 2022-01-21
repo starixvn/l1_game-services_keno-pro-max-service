@@ -12,6 +12,6 @@ export default {
     defaultBetTracks: {},
     hedgeBetGroups: [
         ["big", "small"],
-        ["odd", "even"],
+        ["even", "odd"],
     ],
 };
