@@ -1,5 +1,7 @@
 import Chance from "chance";
 import { Random, MersenneTwister19937 } from "random-js";
+import { shuffle as d3Shuffle } from "d3-array";
+import _ from "lodash";
 
 const chance = new Chance();
 const random = new Random(MersenneTwister19937.autoSeed());
@@ -20,6 +22,27 @@ const algorithms = [
     randomlyPick20NumbersByRandomJs,
 ];
 
+const random1 = () => {
+    const randomSelection = chance.natural({
+        min: 0,
+        max: algorithms.length - 1,
+    });
+
+    return algorithms[randomSelection]();
+};
+
+const random2 = () => {
+    return d3Shuffle(d3Shuffle(d3Shuffle(seeds))).slice(0, 20);
+};
+
+const random3 = () => _.shuffle(_.shuffle(_.shuffle(seeds))).slice(0, 20);
+
+const randomModes = {
+    1: [random1],
+    2: [random2],
+    3: [random3],
+};
+
 const settlementRuleEntries = Object.entries({
     big: (totalPoints) => totalPoints >= 811,
     small: (totalPoints) => totalPoints <= 810,
@@ -32,12 +55,11 @@ const settlementRuleEntries = Object.entries({
     earth: (totalPoints) => 924 <= totalPoints && totalPoints <= 1410,
 });
 
-export const generateResult = () => {
-    const randomSelection = chance.natural({
-        min: 0,
-        max: algorithms.length - 1,
-    });
-    const result = algorithms[randomSelection]();
+export const generateResult = (randomMode) => {
+    const randomShuffles = randomModes[randomMode] || randomModes[1];
+    const randomResultAlgorithms = chance.pickone(randomShuffles);
+
+    const result = randomResultAlgorithms();
 
     return result.sort((pre, next) => pre - next);
 };

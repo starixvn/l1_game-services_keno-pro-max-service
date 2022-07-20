@@ -1,8 +1,9 @@
 import { generateResult, getSettlementResult } from "../../src/helpers/result-helper";
 
 describe("generateResult test", () => {
-    it("should return 20 numbers having value between 1 and 80", () => {
-        const actualResult = generateResult();
+    const testCases = [{ randomMode: undefined }, { randomMode: 1 }, { randomMode: 2 }, { randomMode: 3 }];
+    it.each(testCases)("should return 20 numbers having value between 1 and 80", ({ randomMode }) => {
+        const actualResult = generateResult(randomMode);
 
         expect(actualResult.length).toEqual(20);
         expect(actualResult).toSatisfyAll((number) => number >= 1 && number <= 80);
