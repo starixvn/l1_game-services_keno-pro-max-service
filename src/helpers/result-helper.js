@@ -56,12 +56,7 @@ const settlementRuleEntries = Object.entries({
 });
 
 export const generateResult = (randomMode) => {
-    const randomShuffles = randomModes[randomMode] || randomModes[1];
-    const randomResultAlgorithms = chance.pickone(randomShuffles);
-
-    const result = randomResultAlgorithms();
-
-    return result.sort((pre, next) => pre - next);
+    return chance.pickone(randomModes[randomMode] || randomModes[1])();
 };
 
 export const getSettlementResult = (roundResult) => {
