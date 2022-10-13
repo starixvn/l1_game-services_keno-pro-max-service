@@ -22,16 +22,17 @@ const bet = {
     freeBet: { type: Boolean, default: false },
 
     playerId: { type: Number },
-    roundId: { type: Number, default: 0 },
+    roundId: { type: Number, required: true },
     paid: { type: Boolean, default: false },
+
+    rate: { type: Number, required: true },
 };
 const bets = mongoose.model(
     "KenoProMax_cuoc",
     new mongoose.Schema({
         ...bet,
-        currency: { type: String, require: true },
-        rate: { type: Number, require: true },
-        operatorId: { type: String, required: false },
+        currency: { type: String, required: true },
+        operatorId: { type: String, required: true },
     })
 );
 const tmpBets = mongoose.model("KenoProMax_tmpcuoc", new mongoose.Schema(bet));
