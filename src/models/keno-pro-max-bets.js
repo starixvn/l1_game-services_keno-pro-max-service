@@ -24,13 +24,12 @@ const bet = {
     playerId: { type: Number },
     roundId: { type: Number, required: true },
     paid: { type: Boolean, default: false },
-
-    rate: { type: Number, required: true },
 };
 const bets = mongoose.model(
     "KenoProMax_cuoc",
     new mongoose.Schema({
         ...bet,
+        rate: { type: Number, required: true },
         currency: { type: String, required: true },
         operatorId: { type: String, required: true },
     })
