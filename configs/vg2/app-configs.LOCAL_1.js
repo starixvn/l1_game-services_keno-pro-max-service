@@ -33,7 +33,7 @@ export default {
     },
     enabledLogs: true,
     database: {
-        url: "mongodb://lmn_backend:LmnBackend@10.10.50.13:37104/?replicaSet=L2pLocal&appName=kenopromax",
+        url: "mongodb://lmn_backend:LmnBackend@10.10.50.12:39201,10.10.50.13:39201,10.10.50.14:39201/?replicaSet=L2pLocal&appName=kenopromax",
         options: {
             dbName: "minigame",
             useNewUrlParser: true,
@@ -47,14 +47,4 @@ export default {
         env: "LOCAL_1",
     },
     adminSecretKey: "asWDEerfOIdgsdqRTFabvmgh",
-    enableCorsWs: true,
-    corsUrls: [
-        "http://localhost:7456",
-        "https://l2-games1.lumigame.com",
-        "https://l2-admin1.lumigame.com",
-        "http://localhost:7000",
-        "http://localhost:3000",
-        "http://l2-m1.lumigame.com",
-        "https://l2-m1.lumigame.com",
-    ],
 };
