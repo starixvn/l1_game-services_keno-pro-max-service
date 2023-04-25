@@ -37,7 +37,7 @@ const random2 = () => {
 
 const random3 = () => _.shuffle(_.shuffle(_.shuffle(seeds))).slice(0, 20);
 
-const randomModes = {
+export const randomModes = {
     1: [random1],
     2: [random2],
     3: [random3],
