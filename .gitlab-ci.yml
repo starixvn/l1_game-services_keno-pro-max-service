@@ -2,6 +2,6 @@ variables:
   SMOKE_PRODUCT_NAME: KenoProMax
 
 include:
-  - project: "ci/core-cicd"
+  - project: ci/core-cicd
     ref: main
-    file: "luminet.gitlab-ci.yml"
+    file: luminet.gitlab-ci.yml
