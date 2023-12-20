@@ -60,8 +60,8 @@ describe("KenoProMaxBot inherit test", () => {
 
 describe("resetAllBotData test", () => {
     it("should call resetAllBets and resetAllBotData", () => {
-        spyOn(Table.Crons.TableGameBot.prototype, "resetAllBotData");
-        spyOn(KenoProMaxBot.prototype, "resetAllBets");
+        jest.spyOn(Table.Crons.TableGameBot.prototype, "resetAllBotData");
+        jest.spyOn(KenoProMaxBot.prototype, "resetAllBets");
 
         kenoProMaxBot.resetAllBotData();
 
@@ -218,7 +218,7 @@ describe("isSmallTicket test", () => {
 
 describe("updateBotInRoomData test", () => {
     it("should call super method", () => {
-        spyOn(Table.Crons.TableGameBot.prototype, "updateBotInRoomData");
+        jest.spyOn(Table.Crons.TableGameBot.prototype, "updateBotInRoomData");
 
         kenoProMaxBot.updateBotInRoomData(bot, "big", 100, bot.red);
 
