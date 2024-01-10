@@ -1,7 +1,7 @@
 import { getSettlementResult, generateResult } from "../src/helpers/result-helper";
 import gameSettings from "../src/game-settings";
 
-function run() {
+function run(randomMode) {
     const totalRounds = 100_000;
     const streaks = {
         big: {},
@@ -18,8 +18,6 @@ function run() {
     const stats = {
         streaks: { total: 0, big: 0, small: 0, odd: 0, even: 0 },
     };
-
-    const randomMode = 3;
 
     for (let index = 0; index < totalRounds; index++) {
         const result = generateResult(randomMode);
@@ -61,4 +59,4 @@ function run() {
     console.log(JSON.stringify(streaks));
 }
 
-run();
+[1, 2, 3].forEach((randomMode) => run(randomMode));

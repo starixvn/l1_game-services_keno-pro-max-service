@@ -7,40 +7,46 @@ const chance = new Chance();
 const random = new Random(MersenneTwister19937.autoSeed());
 const seeds = [...Array(81).keys()].slice(1);
 
-const shuffleThenPickOut20ByChance = () => chance.pickset(seeds, 20);
+const shuffleSeeds = (arr) => {
+    for (let i = arr.length - 1; i >= 0; i -= 2) {
+        const randomCardIndex = Math.floor(chance.floating({ min: 0, max: 1 }) * (i + 1));
+        const term = arr[i];
 
-const random20UniqueNumbersByChance = () => chance.unique(chance.natural, 20, { min: 1, max: 80 });
-
-const shuffleThenPickOut20ByRandomJs = () => random.shuffle([...seeds]).slice(0, 20);
-
-const randomlyPick20NumbersByRandomJs = () => random.sample(seeds, 20);
-
-const algorithms = [
-    shuffleThenPickOut20ByChance,
-    random20UniqueNumbersByChance,
-    shuffleThenPickOut20ByRandomJs,
-    randomlyPick20NumbersByRandomJs,
-];
-
-const random1 = () => {
-    const randomSelection = chance.natural({
-        min: 0,
-        max: algorithms.length - 1,
-    });
-
-    return algorithms[randomSelection]();
+        arr[i] = arr[randomCardIndex];
+        arr[randomCardIndex] = term;
+    }
 };
 
-const random2 = () => {
+const random1 = () => {
+    const arr = [...seeds];
+
+    shuffleSeeds(arr);
+    shuffleSeeds(arr);
+    shuffleSeeds(arr);
+
+    return arr.slice(0, 20);
+};
+
+const random2 = () => chance.shuffle(chance.shuffle(chance.shuffle(seeds))).slice(0, 20);
+
+const random3 = () => {
     return d3Shuffle(d3Shuffle(d3Shuffle(seeds))).slice(0, 20);
 };
 
-const random3 = () => _.shuffle(_.shuffle(_.shuffle(seeds))).slice(0, 20);
+const random4 = () => _.shuffle(_.shuffle(_.shuffle(seeds))).slice(0, 20);
+
+const random5 = () => chance.pickset(seeds, 20);
+
+const random6 = () => chance.unique(chance.natural, 20, { min: 1, max: 80 });
+
+const random7 = () => random.shuffle([...seeds]).slice(0, 20);
+
+const random8 = () => random.sample(seeds, 20);
 
 const randomModes = {
-    1: [random1],
-    2: [random2],
-    3: [random3],
+    1: [random1, random2, random3, random4],
+    2: [random5, random6, random7, random8],
+    3: [random1, random3, random5, random7],
 };
 
 const settlementRuleEntries = Object.entries({
