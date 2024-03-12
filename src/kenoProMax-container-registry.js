@@ -2,6 +2,7 @@ import awilix from "awilix";
 import { Table } from "sc-game-base";
 
 import PlaceBetConsumer from "./consumers/keno-pro-max-place-bet-consumer";
+import KenoProMaxSettleRoundConsumer from "./consumers/keno-pro-max-settle-round-consumer";
 import { KenoProMaxBot, KenoProMaxGameCron } from "./crons";
 import { KenoProMaxBets, KenoProMaxRounds, KenoProMaxTmpBets } from "./models";
 
@@ -23,6 +24,7 @@ export default class KenoProMaxContainerRegistry extends Table.TableContainerReg
 
         this.container.register({
             placeBetConsumer: asClass(PlaceBetConsumer).singleton(),
+            settleGameRoundConsumer: asClass(KenoProMaxSettleRoundConsumer).singleton().proxy(),
         });
     }
 
