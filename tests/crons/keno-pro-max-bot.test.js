@@ -1,4 +1,4 @@
-import { stub, stubMongooseModelStupidly } from "jest-micro-auto-stub";
+import { stub, stubMongoose } from "jest-micro-auto-stub";
 import mongoose from "mongoose";
 import { Core, Table } from "sc-game-base";
 
@@ -11,8 +11,8 @@ const gameData = new Table.TableGameData(0);
 const publisher = stub(Core.BaseEventPublishers);
 /** @type {mongoose.Model}*/
 /** @type {mongoose.Model}*/
-const tempBetsRepository = stubMongooseModelStupidly(mongoose.Model);
-const userInfosRepository = stubMongooseModelStupidly(mongoose.Model);
+const tempBetsRepository = stubMongoose(mongoose.Model);
+const userInfosRepository = stubMongoose(mongoose.Model);
 const kenoProMaxBot = new KenoProMaxBot(definition, gameData, publisher, userInfosRepository, tempBetsRepository);
 const bot = {
     id: 1,

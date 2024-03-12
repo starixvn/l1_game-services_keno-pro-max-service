@@ -48,4 +48,9 @@ export default {
     },
     adminSecretKey: "asWDEer4yGdgsdqR4uqmKQZgh",
     enableMsgpackParser: true,
+    otel: {
+        system: "VG",
+        enabled: true,
+        endpoint: "http://10.2.189.50:4318/v1/traces",
+    },
 };
