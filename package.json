@@ -27,7 +27,7 @@
         "random-js": "2.1.0",
         "sc-game-base": "4.1.0",
         "sc-instrument": "1.1.1",
-        "prom-client": "^11.2.1"
+        "prom-client": "^15.0.0"
     },
     
     "resolutions": {
